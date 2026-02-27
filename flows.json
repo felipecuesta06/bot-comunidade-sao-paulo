@@ -1,0 +1,310 @@
+[
+    {
+        "id": "103375d992a92d13",
+        "type": "tab",
+        "label": "Fluxo 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "cce3f06be1565d5b",
+        "type": "telegram receiver",
+        "z": "103375d992a92d13",
+        "name": "",
+        "bot": "0f6c48072fc93ed5",
+        "saveDataDir": "",
+        "filterCommands": false,
+        "x": 90,
+        "y": 180,
+        "wires": [
+            [
+                "73fba9ebdeb2223c",
+                "2fe9cd842bea8f4c",
+                "c8140ab2b715c617"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "54e4c4a3c12d72f7",
+        "type": "telegram sender",
+        "z": "103375d992a92d13",
+        "name": "",
+        "bot": "0f6c48072fc93ed5",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 930,
+        "y": 180,
+        "wires": [
+            [
+                "e068d0706a1132a2"
+            ]
+        ]
+    },
+    {
+        "id": "543a77598ef6554e",
+        "type": "watson-assistant-v2",
+        "z": "103375d992a92d13",
+        "name": "Bot Comunidade SP",
+        "service-endpoint": "https://api.au-syd.assistant.watson.cloud.ibm.com/",
+        "assistant_id": "5f943e36-ef48-4a1e-9b32-35f2764ed755",
+        "debug": false,
+        "restart": false,
+        "return_context": true,
+        "alternate_intents": false,
+        "multisession": false,
+        "timeout": "",
+        "optout-learning": false,
+        "persist-session-id": false,
+        "x": 500,
+        "y": 180,
+        "wires": [
+            [
+                "99d4a07bedab5502",
+                "682f886576821a1f",
+                "c5cd4bb340f23052"
+            ]
+        ]
+    },
+    {
+        "id": "73fba9ebdeb2223c",
+        "type": "change",
+        "z": "103375d992a92d13",
+        "name": "Prepara Entrada",
+        "rules": [
+            {
+                "t": "set",
+                "p": "chatId",
+                "pt": "msg",
+                "to": "payload.chatId",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.content",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 280,
+        "y": 180,
+        "wires": [
+            [
+                "543a77598ef6554e",
+                "4a02161712bd0fdf"
+            ]
+        ]
+    },
+    {
+        "id": "99d4a07bedab5502",
+        "type": "change",
+        "z": "103375d992a92d13",
+        "name": "Prepara Retorno",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.chatId",
+                "pt": "msg",
+                "to": "originalMessage.chat.id",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload.type",
+                "pt": "msg",
+                "to": "message",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload.content",
+                "pt": "msg",
+                "to": "payload.output.generic[0].text",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 710,
+        "y": 180,
+        "wires": [
+            [
+                "54e4c4a3c12d72f7",
+                "8750aecde42d1084"
+            ]
+        ]
+    },
+    {
+        "id": "2fe9cd842bea8f4c",
+        "type": "debug",
+        "z": "103375d992a92d13",
+        "name": "Entrada Telegram",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 330,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "682f886576821a1f",
+        "type": "debug",
+        "z": "103375d992a92d13",
+        "name": "Watson Resposta",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 690,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "e068d0706a1132a2",
+        "type": "debug",
+        "z": "103375d992a92d13",
+        "name": "Saida Telegram",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1040,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "c8140ab2b715c617",
+        "type": "function",
+        "z": "103375d992a92d13",
+        "d": true,
+        "name": "function 1",
+        "func": "// O nó do Telegram envia o texto da mensagem em msg.payload.content.\nvar texto_usuario = msg.payload.content;\n\n// Se o texto não for encontrado em .content, tentamos .originalMessage.text (depende da versão do nó)\nif (!texto_usuario && msg.originalMessage && msg.originalMessage.text) {\n    texto_usuario = msg.originalMessage.text;\n}\n\n// O nó do Watson Assistant (Bot Comunidade SP) espera o texto em msg.payload (string)\nmsg.payload = texto_usuario;\n\n// Garante que o chatId (necessário para o nó Telegram Sender) seja preservado.\nif (!msg.chatId && msg.originalMessage && msg.originalMessage.chat && msg.originalMessage.chat.id) {\n    msg.chatId = msg.originalMessage.chat.id;\n}\n\n// Retorna a mensagem para o nó do Watson.\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 260,
+        "wires": [
+            [
+                "543a77598ef6554e"
+            ]
+        ]
+    },
+    {
+        "id": "c5cd4bb340f23052",
+        "type": "function",
+        "z": "103375d992a92d13",
+        "d": true,
+        "name": "function 2",
+        "func": "// O nó do Watson Assistant retorna a resposta em msg.payload.output.text.\n// É um array, então extraímos o conteúdo.\nvar resposta_watson = \"\";\n\nif (msg.payload && msg.payload.output && msg.payload.output.text && msg.payload.output.text.length > 0) {\n    // Concatena todas as respostas do Watson em uma única string.\n    resposta_watson = msg.payload.output.text.join(\" \");\n} else {\n    // Mensagem de fallback caso o Watson não retorne texto.\n    resposta_watson = \"Desculpe, não consegui obter uma resposta do assistente no momento.\";\n}\n\n// O nó Telegram Sender espera o texto de resposta em msg.payload.\nmsg.payload = resposta_watson;\n\n// O chatId já deve estar em msg.chatId, vindo do nó de entrada,\n// e será usado pelo Telegram Sender para enviar a resposta.\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 700,
+        "y": 260,
+        "wires": [
+            [
+                "54e4c4a3c12d72f7"
+            ]
+        ]
+    },
+    {
+        "id": "4a02161712bd0fdf",
+        "type": "debug",
+        "z": "103375d992a92d13",
+        "name": "Entrada Wa",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 530,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "8750aecde42d1084",
+        "type": "debug",
+        "z": "103375d992a92d13",
+        "name": "Retorno WA Tele",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 870,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "0f6c48072fc93ed5",
+        "type": "telegram bot",
+        "botname": "ComunidadeSP_bot",
+        "usernames": "",
+        "chatids": "",
+        "baseapiurl": "",
+        "testenvironment": false,
+        "updatemode": "polling",
+        "pollinterval": 300,
+        "usesocks": false,
+        "sockshost": "",
+        "socksprotocol": "socks5",
+        "socksport": 6667,
+        "socksusername": "anonymous",
+        "sockspassword": "",
+        "bothost": "",
+        "botpath": "",
+        "localbothost": "0.0.0.0",
+        "localbotport": 8443,
+        "publicbotport": 8443,
+        "privatekey": "",
+        "certificate": "",
+        "useselfsignedcertificate": false,
+        "sslterminated": false,
+        "verboselogging": false
+    },
+    {
+        "id": "66b477f62e589caa",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-contrib-telegrambot": "16.3.3",
+            "node-red-node-watson": "0.10.3"
+        }
+    }
+]

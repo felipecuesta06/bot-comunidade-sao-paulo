@@ -1,0 +1,2233 @@
+{
+  "intents": [
+    {
+      "intent": "consultar-clima",
+      "examples": [
+        {
+          "text": "Como está o tempo?"
+        },
+        {
+          "text": "Gostaria de saber o clima"
+        },
+        {
+          "text": "Previsão do tempo"
+        },
+        {
+          "text": "Qual a temperatura que vai fazer essa semana?"
+        },
+        {
+          "text": "Vai chover?"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "consultar-eventos",
+      "examples": [
+        {
+          "text": "Agenda de eventos para o final de semana"
+        },
+        {
+          "text": "Atividades culturais para sábado e domingo"
+        },
+        {
+          "text": "O que está acontecendo na cidade neste fim de semana?"
+        },
+        {
+          "text": "Programação cultural para o fim de semana"
+        },
+        {
+          "text": "Tem algum evento neste fim de semana?"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "consultar-servicos",
+      "examples": [
+        {
+          "text": "Até que horas está aberto os serviços públicos?"
+        },
+        {
+          "text": "Está funcionando agora os serviços públicos?"
+        },
+        {
+          "text": "Qual é o horário de funcionamento dos serviços públicos?"
+        },
+        {
+          "text": "Qual o horário de operação?"
+        },
+        {
+          "text": "Que horas abre?"
+        },
+        {
+          "text": "Tem expediente hoje nos serviços públicos?"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "consultar-transito",
+      "examples": [
+        {
+          "text": "Alguma via bloqueada?"
+        },
+        {
+          "text": "Como está o trânsito agora?"
+        },
+        {
+          "text": "Está tudo parado nas ruas?"
+        },
+        {
+          "text": "Situação do tráfego hoje"
+        },
+        {
+          "text": "Tem acidente causando trânsito?"
+        },
+        {
+          "text": "Tem interdição em alguma avenida?"
+        },
+        {
+          "text": "Tem muito trânsito na cidade?"
+        },
+        {
+          "text": "Trânsito fluindo bem?"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "consultar-transporte",
+      "examples": [
+        {
+          "text": "As linhas estão circulando sem falhas?"
+        },
+        {
+          "text": "Como está o funcionamento das linhas de transporte?"
+        },
+        {
+          "text": "O serviço de transporte público está regular?"
+        },
+        {
+          "text": "O transporte público está funcionando normalmente hoje?"
+        },
+        {
+          "text": "Tem alguma interrupção no sistema de transporte?"
+        },
+        {
+          "text": "Tem atraso no transporte urbano?"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "consultar-vacina",
+      "examples": [
+        {
+          "text": "Está aplicando vacina no fim de semana?"
+        },
+        {
+          "text": "Quais vacinas estão disponíveis?"
+        },
+        {
+          "text": "Quais vacinas estão sendo aplicadas agora?"
+        },
+        {
+          "text": "Tem vacina no posto de saúde hoje?"
+        },
+        {
+          "text": "Vacinação infantil está acontecendo?"
+        }
+      ],
+      "description": ""
+    }
+  ],
+  "entities": [
+    {
+      "entity": "dia-semana",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Domingo",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Quarta-feira",
+          "synonyms": [
+            "Quarta"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Quinta-Feira",
+          "synonyms": [
+            "Quinta"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Sábado",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Segunda-feira",
+          "synonyms": [
+            "Segunda"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Sexta-feira",
+          "synonyms": [
+            "Sexta"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Terça-feira",
+          "synonyms": [
+            "Terça"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "linhas-metrô",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Linha 15-Prata",
+          "synonyms": [
+            "Linha 15",
+            "Linha Prata"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Linha 1-Azul",
+          "synonyms": [
+            "Linha 1",
+            "Linha Azul"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Linha 2-Verde",
+          "synonyms": [
+            "Linha 2",
+            "Linha Verde"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Linha 3-Vermelha",
+          "synonyms": [
+            "Linha 3",
+            "Linha Vermelha"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Linha 4-Amarela",
+          "synonyms": [
+            "Linha 4",
+            "Linha Amarela"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Linha 5-Lilás",
+          "synonyms": [
+            "Linha 5",
+            "Linha Lilás"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "linhas-trem",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Linha 10-Turquesa",
+          "synonyms": [
+            "Linha 10",
+            "Linha Turquesa"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Linha 11-Coral",
+          "synonyms": [
+            "Linha 11",
+            "Linha Coral"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Linha 12-Safira",
+          "synonyms": [
+            "Linha 12",
+            "Linha Safira"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Linha 13-Jade",
+          "synonyms": [
+            "Linha 13",
+            "Linha Jade"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Linha 7-Rubi",
+          "synonyms": [
+            "Linha 7",
+            "Linha Rubi"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Linha 8-Diamante",
+          "synonyms": [
+            "Linha 8",
+            "Linha Diamante"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Linha 9-Esmeralda",
+          "synonyms": [
+            "Linha 9",
+            "Linha Esmeralda"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "locais-sp",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Avenida 23 de Maio",
+          "synonyms": [
+            "23 de Maio"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Avenida Brás Leme",
+          "synonyms": [
+            "Brás Leme"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Avenida Faria Lima",
+          "synonyms": [
+            "Faria Lima"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Avenida Paulista",
+          "synonyms": [
+            "Paulista"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Avenida Radial Leste",
+          "synonyms": [
+            "Radial Leste"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Marginal Tietê",
+          "synonyms": [
+            "Marginal",
+            "Tietê"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "servicos-publicos",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Bibliotecas Municipais",
+          "synonyms": [
+            "Bibliotecas "
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Centros de Acolhida",
+          "synonyms": [
+            "Acolhida",
+            "Acolhimento",
+            "Centro de Acolhimento"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Poupatempo",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "UBS",
+          "synonyms": [
+            "Unidades Básicas de Saúde"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "tipo-eventos",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Oficina de Arte",
+          "synonyms": [
+            "Arte",
+            "Exposição de Arte",
+            "Pinturas",
+            "Quadros"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Show de Música",
+          "synonyms": [
+            "Festival de Música",
+            "Música",
+            "Show"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Teatro",
+          "synonyms": [
+            "Apresentação de Teatral",
+            "Apresentação de Teatro",
+            "Teatral"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "tipos-doencas",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Dengue",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Hepatite",
+          "synonyms": [
+            "Hepatite B"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Influenza",
+          "synonyms": [
+            "Gripe"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Tríplice",
+          "synonyms": [
+            "Tríplice Viral"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "transportes-urbanos",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Metrô",
+          "synonyms": [
+            "Sistema metroviário"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Ônibus",
+          "synonyms": [
+            "Coletivo"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Trem",
+          "synonyms": [
+            "CPTM",
+            "Sistema ferroviário"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    }
+  ],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "Bem-vindo",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Olá sou o Bot da Comunidade de São Paulo. Como posso te ajudar?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "welcome",
+      "dialog_node": "Bem-vindo"
+    },
+    {
+      "type": "standard",
+      "title": "Em outros casos",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Eu não entendi. Você pode tentar reformular a frase."
+              },
+              {
+                "text": "Você pode reformular sua afirmação? Eu não estou entendendo."
+              },
+              {
+                "text": "Eu não entendi o sentido."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "anything_else",
+      "dialog_node": "Em outros casos",
+      "previous_sibling": "node_6_1761280689167",
+      "disambiguation_opt_out": true
+    },
+    {
+      "type": "standard",
+      "title": "Sexta",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Sexta-feira promete pancadas de chuva no fim do dia. Melhor se antecipar e evitar deslocamentos à noite."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_6_1761280689167",
+      "conditions": "@dia-semana:Sexta-feira",
+      "dialog_node": "node_10_1761281711299",
+      "previous_sibling": "node_1_1761281706475"
+    },
+    {
+      "type": "standard",
+      "title": "Linha 9-Esmeralda",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "A Linha 9-Esmeralda, operada pela ViaMobilidade, está com operação estável entre Osasco e Varginha. Trens circulando conforme o previsto."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_5_1761282800819",
+      "conditions": "@linhas-trem:(Linha 9-Esmeralda)",
+      "dialog_node": "node_10_1761283802405",
+      "previous_sibling": "node_2_1761283801262"
+    },
+    {
+      "type": "standard",
+      "title": "Linha 12-Safira",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "A Linha 12-Safira está com operação regular entre Brás e Calmon Viana. Trens circulam com pontualidade."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_5_1761282800819",
+      "conditions": "@linhas-trem:(Linha 12-Safira)",
+      "dialog_node": "node_10_1761283808713",
+      "previous_sibling": "node_1_1761283806636"
+    },
+    {
+      "type": "standard",
+      "title": "Terca",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Nesta terça, os Centros de Acolhida seguem com atendimento das 18h às 8h. O serviço está disponível como de costume."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_6_1761286428239",
+      "conditions": "@dia-semana:Terça-feira",
+      "dialog_node": "node_10_1761286930022",
+      "previous_sibling": "node_5_1761286927332"
+    },
+    {
+      "type": "standard",
+      "title": "Domingo",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Neste domingo, os Centros de Acolhida estão abertos das 18h até 8h. Atendimento garantido também aos domingos."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_6_1761286428239",
+      "conditions": "@dia-semana:Domingo",
+      "dialog_node": "node_10_1761286937562",
+      "previous_sibling": "node_9_1761286936037"
+    },
+    {
+      "type": "standard",
+      "title": "Segunda",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Nesta segunda-feira, as bibliotecas municipais estão abertas das 9h às 18h. Ótimo dia para uma boa leitura!"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_5_1761286430687",
+      "conditions": "@dia-semana:Segunda-feira",
+      "dialog_node": "node_10_1761287160883"
+    },
+    {
+      "type": "standard",
+      "title": "Quarta",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Quarta-feira com funcionamento normal nas bibliotecas municipais: das 9h às 18h."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_5_1761286430687",
+      "conditions": "@dia-semana:Quarta-feira",
+      "dialog_node": "node_10_1761287163987",
+      "previous_sibling": "node_5_1761287162454"
+    },
+    {
+      "type": "standard",
+      "title": "Sábado",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Sábado o Poupatempo funciona em horário reduzido: das 8h às 14h."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_6_1761286432736",
+      "conditions": "@dia-semana:Sábado",
+      "dialog_node": "node_10_1761287378796",
+      "previous_sibling": "node_6_1761287377688"
+    },
+    {
+      "type": "standard",
+      "title": "Hepatite B ",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "A vacina de Hepatite B pode ser tomada de segunda a sábado, com horários estendidos nas UBSs e postos do Poupatempo. Não precisa agendamento!"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_6_1761288556846",
+      "conditions": "@tipos-doencas:Hepatite",
+      "dialog_node": "node_10_1761288954438",
+      "previous_sibling": "node_7_1761288953122"
+    },
+    {
+      "type": "standard",
+      "title": "Terça",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Terça-feira será parcialmente nublada, com temperatura amena. Ideal para quem gosta de clima equilibrado."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_6_1761280689167",
+      "conditions": "@dia-semana:Terça-feira",
+      "dialog_node": "node_1_1761281696146",
+      "previous_sibling": "node_9_1761281688709"
+    },
+    {
+      "type": "standard",
+      "title": "Quinta ",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Quinta-feira será nublada, mas sem previsão de chuva. Um dia tranquilo para resolver pendências na rua."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_6_1761280689167",
+      "conditions": "@dia-semana:Quinta-Feira",
+      "dialog_node": "node_1_1761281706475",
+      "previous_sibling": "node_9_1761281697482"
+    },
+    {
+      "type": "standard",
+      "title": "Linha 3-Vermelha",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "A Linha 3-Vermelha está operando normalmente entre Corinthians-Itaquera e Palmeiras-Barra Funda. "
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_9_1761282799352",
+      "conditions": "@linhas-metrô:(Linha 3-Vermelha)",
+      "dialog_node": "node_1_1761283364898",
+      "previous_sibling": "node_3_1761283354335"
+    },
+    {
+      "type": "standard",
+      "title": "Linha 11-Coral",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "A Linha 11-Coral está operando normalmente entre Luz e Estudantes. Nenhuma falha técnica ou atraso registrado."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_5_1761282800819",
+      "conditions": "@linhas-trem:(Linha 11-Coral)",
+      "dialog_node": "node_1_1761283806636",
+      "previous_sibling": "node_3_1761283803689"
+    },
+    {
+      "type": "standard",
+      "title": "Consultar Serviços",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Certo! Qual serviço você gostaria de verificar?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#consultar-servicos",
+      "dialog_node": "node_1_1761285595433",
+      "previous_sibling": "node_9_1761287592820"
+    },
+    {
+      "type": "standard",
+      "title": "UBS",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Qual dia você gostaria de saber o horário de funcionamento das UBS?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1761285595433",
+      "conditions": "@servicos-publicos:UBS",
+      "dialog_node": "node_1_1761286424528"
+    },
+    {
+      "type": "standard",
+      "title": "Sexta",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Sexta-feira as bibliotecas municipais seguem com atendimento das 9h às 18h."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_5_1761286430687",
+      "conditions": "@dia-semana:Sexta-feira",
+      "dialog_node": "node_1_1761287166463",
+      "previous_sibling": "node_8_1761287165388"
+    },
+    {
+      "type": "standard",
+      "title": "Teatro",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Neste fim de semana, o teatro está em destaque! No sábado às 20h, tem a comédia “Entre Risos e Segredos” no Teatro Municipal. "
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_2_1761287806014",
+      "conditions": "@tipo-eventos:Teatro",
+      "dialog_node": "node_1_1761288254222"
+    },
+    {
+      "type": "standard",
+      "title": "Linha 1-Azul",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "A Linha 1-Azul está operando normalmente entre Jabaquara e Tucuruvi. Não há registro de falhas ou atrasos no momento."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_9_1761282799352",
+      "conditions": "@linhas-metrô:(Linha 1-Azul)",
+      "dialog_node": "node_2_1761283351571"
+    },
+    {
+      "type": "standard",
+      "title": "Linha 8-Diamante",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "A Linha 8-Diamante está funcionando dentro da normalidade entre Júlio Prestes e Amador Bueno. Nenhuma ocorrência registrada até o momento."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_5_1761282800819",
+      "conditions": "@linhas-trem:(Linha 8-Diamante)",
+      "dialog_node": "node_2_1761283801262",
+      "previous_sibling": "node_3_1761283799771"
+    },
+    {
+      "type": "standard",
+      "title": "Avenida 23 de Maio",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "A 23 de Maio está com lentidão no sentido Aeroporto, devido ao alto fluxo de veículos na região do Ibirapuera. Tempo de deslocamento acima do normal."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_7_1761284072450",
+      "conditions": "@locais-sp:(Avenida 23 de Maio)",
+      "dialog_node": "node_2_1761285043645",
+      "previous_sibling": "node_9_1761285042417"
+    },
+    {
+      "type": "standard",
+      "title": "Marginal Tietê",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Marginal Tietê com tráfego carregado no sentido Castelo Branco, entre as pontes da Vila Guilherme e do Limão. Motoristas devem redobrar a atenção."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_7_1761284072450",
+      "conditions": "@locais-sp:(Marginal Tietê)",
+      "dialog_node": "node_2_1761285047065",
+      "previous_sibling": "node_9_1761285045331"
+    },
+    {
+      "type": "standard",
+      "title": "Quarta",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Quarta-feira com atendimento regular nas UBS: das 7h às 17h."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1761286424528",
+      "conditions": "@dia-semana:Quarta-feira",
+      "dialog_node": "node_2_1761286598394",
+      "previous_sibling": "node_8_1761286594944"
+    },
+    {
+      "type": "standard",
+      "title": "Quinta",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Nesta quinta, as UBS seguem abertas das 7h às 17h. Pode ir tranquilo."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1761286424528",
+      "conditions": "@dia-semana:Quinta-Feira",
+      "dialog_node": "node_2_1761286600515",
+      "previous_sibling": "node_2_1761286598394"
+    },
+    {
+      "type": "standard",
+      "title": "Sábado",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Certo! Qual tipo de evento você gostaria de ver no sábado?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_9_1761287592820",
+      "conditions": "@dia-semana:Sábado",
+      "dialog_node": "node_2_1761287806014"
+    },
+    {
+      "type": "standard",
+      "title": "Domingo",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Certo! Qual tipo de evento você gostaria de ver no domingo?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_9_1761287592820",
+      "conditions": "@dia-semana:Domingo",
+      "dialog_node": "node_2_1761287807901",
+      "previous_sibling": "node_2_1761287806014"
+    },
+    {
+      "type": "standard",
+      "title": "Dengue",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "A vacina contra Dengue está disponível às quartas, sábados e domingos em regiões prioritárias, das 10h às 16h. Verifique a unidade mais próxima!"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_6_1761288556846",
+      "conditions": "@tipos-doencas:Dengue",
+      "dialog_node": "node_2_1761288955671",
+      "previous_sibling": "node_10_1761288954438"
+    },
+    {
+      "type": "standard",
+      "title": "Linha 2-Verde",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "A Linha 2-Verde está funcionando dentro da normalidade entre Vila Prudente e Vila Madalena. Intervalos regulares e operação estável."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_9_1761282799352",
+      "conditions": "@linhas-metrô:(Linha 2-Verde)",
+      "dialog_node": "node_3_1761283354335",
+      "previous_sibling": "node_2_1761283351571"
+    },
+    {
+      "type": "standard",
+      "title": "Linha 7-Rubi",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "A Linha 7-Rubi está operando normalmente entre Luz e Jundiaí. Os trens circulam com intervalos regulares e sem registro de falhas."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_5_1761282800819",
+      "conditions": "@linhas-trem:(Linha 7-Rubi)",
+      "dialog_node": "node_3_1761283799771"
+    },
+    {
+      "type": "standard",
+      "title": "Linha 10-Turquesa",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "A Linha 10-Turquesa está funcionando normalmente entre Brás e Rio Grande da Serra. Intervalos regulares e operação sem interrupções."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_5_1761282800819",
+      "conditions": "@linhas-trem:(Linha 10-Turquesa)",
+      "dialog_node": "node_3_1761283803689",
+      "previous_sibling": "node_10_1761283802405"
+    },
+    {
+      "type": "standard",
+      "title": "Avenida Paulista",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "A Avenida Paulista apresenta trânsito intenso no sentido Paraíso, especialmente nas proximidades da estação Consolação. Recomenda-se evitar o trecho entre 7h e 9h"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_7_1761284072450",
+      "conditions": "@locais-sp:(Avenida Paulista)",
+      "dialog_node": "node_3_1761285041229",
+      "previous_sibling": "node_9_1761285039333"
+    },
+    {
+      "type": "standard",
+      "title": "Sexta",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Sexta-feira com funcionamento normal nas UBS: das 7h às 17h."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1761286424528",
+      "conditions": "@dia-semana:Sexta-feira",
+      "dialog_node": "node_3_1761286614871",
+      "previous_sibling": "node_2_1761286600515"
+    },
+    {
+      "type": "standard",
+      "title": "Domingo",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Domingo é dia de descanso nas UBS. Elas não funcionam."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1761286424528",
+      "conditions": "@dia-semana:Domingo",
+      "dialog_node": "node_3_1761286618757",
+      "previous_sibling": "node_5_1761286616904"
+    },
+    {
+      "type": "standard",
+      "title": "Sexta",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Sexta-feira os Centros de Acolhida seguem abertos das 18h até 8h da manhã. Atendimento normal."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_6_1761286428239",
+      "conditions": "@dia-semana:Sexta-feira",
+      "dialog_node": "node_3_1761286934462",
+      "previous_sibling": "node_9_1761286932786"
+    },
+    {
+      "type": "standard",
+      "title": "Sábado",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Sábado as bibliotecas funcionam em horário reduzido: das 10h às 16h."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_5_1761286430687",
+      "conditions": "@dia-semana:Sábado",
+      "dialog_node": "node_4_1761287167540",
+      "previous_sibling": "node_1_1761287166463"
+    },
+    {
+      "type": "standard",
+      "title": "Quinta",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Nesta quinta, o Poupatempo segue aberto das 7h às 19h. Pode agendar seu atendimento."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_6_1761286432736",
+      "conditions": "@dia-semana:Quinta-Feira",
+      "dialog_node": "node_4_1761287376565",
+      "previous_sibling": "node_7_1761287375468"
+    },
+    {
+      "type": "standard",
+      "title": "Teatro",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "No domingo, às 18h, o espetáculo “Fragmentos Urbanos” ocupa o palco do Centro Cultural São Paulo. Ótimas opções pra quem curte dramaturgia!"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_2_1761287807901",
+      "conditions": "@tipo-eventos:Teatro",
+      "dialog_node": "node_4_1761288262692"
+    },
+    {
+      "type": "standard",
+      "title": "Sábado",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Sábado será ensolarado e quente, perfeito para passeios ao ar livre ou atividades em família."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_6_1761280689167",
+      "conditions": "@dia-semana:Sábado",
+      "dialog_node": "node_5_1761281714068",
+      "previous_sibling": "node_10_1761281711299"
+    },
+    {
+      "type": "standard",
+      "title": "Trem",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Qual linha de trem você gostaria de consultar?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_9_1761282074161",
+      "conditions": "@transportes-urbanos:Trem",
+      "dialog_node": "node_5_1761282800819",
+      "previous_sibling": "node_9_1761282799352"
+    },
+    {
+      "type": "standard",
+      "title": "Linha 15-Prata",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "A Linha 15-Prata (monotrilho) está funcionando normalmente entre Vila Prudente e Jardim Colonial. Intervalos e circulação estáveis."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_9_1761282799352",
+      "conditions": "@linhas-metrô:(Linha 15-Prata)",
+      "dialog_node": "node_5_1761283370057",
+      "previous_sibling": "node_9_1761283368469"
+    },
+    {
+      "type": "standard",
+      "title": "Biblioteca",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Qual dia você gostaria de saber o horário de funcionamento das Bibliotecas?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1761285595433",
+      "conditions": "@servicos-publicos:(Bibliotecas Municipais)",
+      "dialog_node": "node_5_1761286430687",
+      "previous_sibling": "node_6_1761286428239"
+    },
+    {
+      "type": "standard",
+      "title": "Sábado",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Sábado! Algumas UBS estão abertas das 8h ao meio-dia. Verifique a unidade mais próxima."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1761286424528",
+      "conditions": "@dia-semana:Sábado",
+      "dialog_node": "node_5_1761286616904",
+      "previous_sibling": "node_3_1761286614871"
+    },
+    {
+      "type": "standard",
+      "title": "Segunda",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Segunda-feira, os Centros de Acolhida funcionam das 18h até 8h da manhã seguinte, oferecendo abrigo noturno normalmente."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_6_1761286428239",
+      "conditions": "@dia-semana:Segunda-feira",
+      "dialog_node": "node_5_1761286927332"
+    },
+    {
+      "type": "standard",
+      "title": "Terca",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Terça as bibliotecas funcionam das 9h às 18h. Pode passar lá para estudar ou pegar um livro."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_5_1761286430687",
+      "conditions": "@dia-semana:Terça-feira",
+      "dialog_node": "node_5_1761287162454",
+      "previous_sibling": "node_10_1761287160883"
+    },
+    {
+      "type": "standard",
+      "title": "Domingo",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Domingo é dia de descanso para as bibliotecas municipais. Elas não abrem."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_5_1761286430687",
+      "conditions": "@dia-semana:Domingo",
+      "dialog_node": "node_5_1761287168907",
+      "previous_sibling": "node_4_1761287167540"
+    },
+    {
+      "type": "standard",
+      "title": "Consultar Clima",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Claro! Qual dia da semana você gostaria de saber?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#consultar-clima",
+      "dialog_node": "node_6_1761280689167",
+      "previous_sibling": "node_9_1761282074161"
+    },
+    {
+      "type": "standard",
+      "title": "Centro de Acolhimento",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Qual dia você gostaria de saber o horário de funcionamento dos Centros?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1761285595433",
+      "conditions": "@servicos-publicos:(Centros de Acolhida)",
+      "dialog_node": "node_6_1761286428239",
+      "previous_sibling": "node_1_1761286424528"
+    },
+    {
+      "type": "standard",
+      "title": "Poupatempo",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Qual dia você gostaria de saber o horário de funcionamento do Poupatempo?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1761285595433",
+      "conditions": "@servicos-publicos:Poupatempo",
+      "dialog_node": "node_6_1761286432736",
+      "previous_sibling": "node_5_1761286430687"
+    },
+    {
+      "type": "standard",
+      "title": "Segunda",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Nesta segunda-feira, as UBS estão abertas das 7h às 17h. Atendimento médico e vacinação disponíveis."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1761286424528",
+      "conditions": "@dia-semana:Segunda-feira",
+      "dialog_node": "node_6_1761286593063"
+    },
+    {
+      "type": "standard",
+      "title": "Sexta",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Sexta-feira com funcionamento regular no Poupatempo: das 7h às 19h."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_6_1761286432736",
+      "conditions": "@dia-semana:Sexta-feira",
+      "dialog_node": "node_6_1761287377688",
+      "previous_sibling": "node_4_1761287376565"
+    },
+    {
+      "type": "standard",
+      "title": "Show",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Sábado às 21h tem show da banda “Som da Rua” no Auditório Ibirapuera."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_2_1761287806014",
+      "conditions": "@tipo-eventos:(Show de Música)",
+      "dialog_node": "node_6_1761288255656",
+      "previous_sibling": "node_1_1761288254222"
+    },
+    {
+      "type": "standard",
+      "title": "Arte",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Sábado tem a exposição interativa “Cores em Movimento” no Museu da Imagem e do Som, das 11h às 18h."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_2_1761287806014",
+      "conditions": "@tipo-eventos:(Oficina de Arte)",
+      "dialog_node": "node_6_1761288260935",
+      "previous_sibling": "node_6_1761288255656"
+    },
+    {
+      "type": "standard",
+      "title": "Consultar Vacina",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Neste momento, estamos com campanha ativa de Influenza, Tríplice Viral, Hepatite B e Dengue em São Paulo!"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          },
+          {
+            "values": [],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_6_1761288556846"
+      },
+      "conditions": "#consultar-vacina",
+      "dialog_node": "node_6_1761288538932",
+      "previous_sibling": "Bem-vindo"
+    },
+    {
+      "type": "standard",
+      "title": "Tipo de Vacina",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Qual tipo de vacina você gostaria de ter mais informações?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_6_1761288538932",
+      "dialog_node": "node_6_1761288556846"
+    },
+    {
+      "type": "standard",
+      "title": "Domingo",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Domingo terá tempo instável, com sol entre nuvens e possibilidade de chuva leve. Um dia bom para descansar com flexibilidade."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_6_1761280689167",
+      "conditions": "@dia-semana:Domingo",
+      "dialog_node": "node_7_1761281716004",
+      "previous_sibling": "node_5_1761281714068"
+    },
+    {
+      "type": "standard",
+      "title": "Ônibus",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "A linha de ônibus está operando normalmente no momento. Os veículos estão circulando dentro do horário previsto e não há registro de atrasos ou interrupções."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_9_1761282074161",
+      "conditions": "@transportes-urbanos:Ônibus",
+      "dialog_node": "node_7_1761282802381",
+      "previous_sibling": "node_5_1761282800819"
+    },
+    {
+      "type": "standard",
+      "title": "Linha 13-Jade",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "A Linha 13-Jade está funcionando normalmente entre Engenheiro Goulart e o Aeroporto de Guarulhos."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_5_1761282800819",
+      "conditions": "@linhas-trem:(Linha 13-Jade)",
+      "dialog_node": "node_7_1761283810221",
+      "previous_sibling": "node_10_1761283808713"
+    },
+    {
+      "type": "standard",
+      "title": "Consultar Trânsito ",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Certo! Em qual local de São Paulo você gostaria de saber?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#consultar-transito",
+      "dialog_node": "node_7_1761284072450",
+      "previous_sibling": "node_1_1761285595433"
+    },
+    {
+      "type": "standard",
+      "title": "Quarta",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Quarta-feira com expediente normal no Poupatempo: das 7h às 19h."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_6_1761286432736",
+      "conditions": "@dia-semana:Quarta-feira",
+      "dialog_node": "node_7_1761287375468",
+      "previous_sibling": "node_8_1761287374171"
+    },
+    {
+      "type": "standard",
+      "title": "Arte",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "No domingo, das 10h às 16h, acontece a Feira de Arte Popular na Praça Benedito Calixto, com obras de artistas locais."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_2_1761287807901",
+      "conditions": "@tipo-eventos:(Oficina de Arte)",
+      "dialog_node": "node_7_1761288265838",
+      "previous_sibling": "node_9_1761288264364"
+    },
+    {
+      "type": "standard",
+      "title": "Influenza",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "A vacina contra gripe (Influenza) está disponível nas UBSs às segundas, quartas e sextas, das 8h às 17h. É só chegar com documento de identificação."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_6_1761288556846",
+      "conditions": "@tipos-doencas:Influenza",
+      "dialog_node": "node_7_1761288947304"
+    },
+    {
+      "type": "standard",
+      "title": "Tríplice Viral",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "A Tríplice Viral, que protege contra sarampo, caxumba e rubéola, está sendo aplicada às terças e quintas em escolas públicas e unidades de saúde, das 9h às 16h."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_6_1761288556846",
+      "conditions": "@tipos-doencas:Tríplice",
+      "dialog_node": "node_7_1761288953122",
+      "previous_sibling": "node_7_1761288947304"
+    },
+    {
+      "type": "standard",
+      "title": "Terca",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Terça e as UBS funcionam normalmente das 7h às 17h."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1761286424528",
+      "conditions": "@dia-semana:Terça-feira",
+      "dialog_node": "node_8_1761286594944",
+      "previous_sibling": "node_6_1761286593063"
+    },
+    {
+      "type": "standard",
+      "title": "Quinta",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Nesta quinta, as bibliotecas estão abertas das 9h às 18h. Aproveite para visitar!"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_5_1761286430687",
+      "conditions": "@dia-semana:Quinta-Feira",
+      "dialog_node": "node_8_1761287165388",
+      "previous_sibling": "node_10_1761287163987"
+    },
+    {
+      "type": "standard",
+      "title": "Segunda",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Nesta segunda-feira, o Poupatempo está aberto das 7h às 19h. Ideal para resolver documentos logo no início da semana."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_6_1761286432736",
+      "conditions": "@dia-semana:Segunda-feira",
+      "dialog_node": "node_8_1761287372345"
+    },
+    {
+      "type": "standard",
+      "title": "Terca",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Terça o Poupatempo funciona das 7h às 19h. Atendimento completo disponível."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_6_1761286432736",
+      "conditions": "@dia-semana:Terça-feira",
+      "dialog_node": "node_8_1761287374171",
+      "previous_sibling": "node_8_1761287372345"
+    },
+    {
+      "type": "standard",
+      "title": "Segunda",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Segunda-feira fará sol o dia todo, com máxima de 27 graus. Ótimo para começar a semana com energia!"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_6_1761280689167",
+      "conditions": "@dia-semana:Segunda-feira",
+      "dialog_node": "node_9_1761281688709"
+    },
+    {
+      "type": "standard",
+      "title": "Quarta",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Quarta-feira terá chuva à tarde, então é bom sair preparado com guarda-chuva e capa."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_6_1761280689167",
+      "conditions": "@dia-semana:Quarta-feira",
+      "dialog_node": "node_9_1761281697482",
+      "previous_sibling": "node_1_1761281696146"
+    },
+    {
+      "type": "standard",
+      "title": "Consultar Transporte",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Claro! Qual tipo específico de transporte você gostaria de saber?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#consultar-transporte",
+      "dialog_node": "node_9_1761282074161",
+      "previous_sibling": "node_7_1761284072450"
+    },
+    {
+      "type": "standard",
+      "title": "Metrô",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Qual linha de metrô você gostaria de consultar?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_9_1761282074161",
+      "conditions": "@transportes-urbanos:Metrô",
+      "dialog_node": "node_9_1761282799352"
+    },
+    {
+      "type": "standard",
+      "title": "Linha 4-Amarela",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "A Linha 4-Amarela está com velocidade reduzida entre Luz e Paulista devido a falha técnica."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_9_1761282799352",
+      "conditions": "@linhas-metrô:(Linha 4-Amarela)",
+      "dialog_node": "node_9_1761283366413",
+      "previous_sibling": "node_1_1761283364898"
+    },
+    {
+      "type": "standard",
+      "title": "Linha 5-Lilás",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "A Linha 5-Lilás, operada pela ViaMobilidade, está com operação regular entre Capão Redondo e Chácara Klabin. Tudo dentro do esperado."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_9_1761282799352",
+      "conditions": "@linhas-metrô:(Linha 5-Lilás)",
+      "dialog_node": "node_9_1761283368469",
+      "previous_sibling": "node_9_1761283366413"
+    },
+    {
+      "type": "standard",
+      "title": "Avenida Brás Leme",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "A Avenida Brás Leme está com trânsito fluindo bem nesta manhã. Pequena retenção apenas nas proximidades do cruzamento com a Rua dos Lavradores."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_7_1761284072450",
+      "conditions": "@locais-sp:(Avenida Brás Leme)",
+      "dialog_node": "node_9_1761285039333"
+    },
+    {
+      "type": "standard",
+      "title": "Avenida Faria Lima",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Trânsito moderado na Avenida Faria Lima, com pontos de retenção entre o Largo da Batata e a Avenida Cidade Jardim. Sem ocorrências graves no momento."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_7_1761284072450",
+      "conditions": "@locais-sp:(Avenida Faria Lima)",
+      "dialog_node": "node_9_1761285042417",
+      "previous_sibling": "node_3_1761285041229"
+    },
+    {
+      "type": "standard",
+      "title": "Avenida Radial Leste",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "A Radial Leste apresenta congestionamento no sentido centro, principalmente na altura do Tatuapé. Reflexos de obras na pista causam redução de velocidade."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_7_1761284072450",
+      "conditions": "@locais-sp:(Avenida Radial Leste)",
+      "dialog_node": "node_9_1761285045331",
+      "previous_sibling": "node_2_1761285043645"
+    },
+    {
+      "type": "standard",
+      "title": "Quarta",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Quarta-feira e os Centros de Acolhida estão abertos das 18h até 8h. O acolhimento noturno está garantido."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_6_1761286428239",
+      "conditions": "@dia-semana:Quarta-feira",
+      "dialog_node": "node_9_1761286931308",
+      "previous_sibling": "node_10_1761286930022"
+    },
+    {
+      "type": "standard",
+      "title": "Quinta",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Nesta quinta, os Centros de Acolhida funcionam das 18h às 8h, como em todos os dias da semana."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_6_1761286428239",
+      "conditions": "@dia-semana:Quinta-Feira",
+      "dialog_node": "node_9_1761286932786",
+      "previous_sibling": "node_9_1761286931308"
+    },
+    {
+      "type": "standard",
+      "title": "Sábado",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Sábado os Centros de Acolhida continuam funcionando das 18h às 8h. O serviço não para no fim de semana."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_6_1761286428239",
+      "conditions": "@dia-semana:Sábado",
+      "dialog_node": "node_9_1761286936037",
+      "previous_sibling": "node_3_1761286934462"
+    },
+    {
+      "type": "standard",
+      "title": "Domingo",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Domingo é dia de folga no Poupatempo. As unidades não abrem."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_6_1761286432736",
+      "conditions": "@dia-semana:Domingo",
+      "dialog_node": "node_9_1761287380415",
+      "previous_sibling": "node_10_1761287378796"
+    },
+    {
+      "type": "standard",
+      "title": "Eventos Final de Semana",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Claro! Qual dia do final de semana você gostaria de saber?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#consultar-eventos",
+      "dialog_node": "node_9_1761287592820",
+      "previous_sibling": "node_6_1761288538932"
+    },
+    {
+      "type": "standard",
+      "title": "Show",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "No domingo, às 17h, rola o “Festival Vozes da Cidade” na Praça das Artes, com artistas independentes e entrada gratuita!"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_2_1761287807901",
+      "conditions": "@tipo-eventos:(Show de Música)",
+      "dialog_node": "node_9_1761288264364",
+      "previous_sibling": "node_4_1761288262692"
+    }
+  ],
+  "counterexamples": [],
+  "system_settings": {
+    "disambiguation": {
+      "prompt": "Você quis dizer:",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": "Nenhuma das anteriores",
+      "use_connect_to_support_prompt": "Connect to support",
+      "single_answer_clarification_prompt": "Something else"
+    },
+    "human_agent_assist": {
+      "prompt": "Você quis dizer:"
+    }
+  },
+  "learning_opt_out": false,
+  "language": "pt-br",
+  "description": "",
+  "name": "Bot Comunidade SP"
+}
